@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
+  const [charactersOne, setCharactersOne] = ([]);
+  const [ charactersTwo, setCharactersTwo] = ([]);
+  const [ charactersThree, setCharactersThree] = ([]);
+  const [ charactersFour, setCharactersFour] = ([]);
+  const [ charactersFive, setCharactersFive] = ([]);
+  const [ charactersSix, setCharactersSix] = ([]);
+  const [ charactersSeven, setCharactersSeven] = ([]);
+  const [ charactersEight, setCharactersEight] = ([]); 
+  const [ charactersNine, setCharactersNine] = ([]);
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 

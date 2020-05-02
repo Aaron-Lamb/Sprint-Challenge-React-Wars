@@ -3,12 +3,10 @@ import './App.css';
 import axios from "axios";
 import Character from "./components/Character";
 import styled from "styled-components";
-import image from "./images/rm-bg.jpg";
 
-const AppDiv = styled.div`
-  background: url(${image});
-  background-size: cover;
-  background-repeat: no-repeat;
+const CharacterDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const App = () => {
@@ -35,8 +33,9 @@ const App = () => {
 
   console.log(characterState);
   return (
-    <AppDiv className="App">
-      <h1 className="Header">Characters</h1>
+    <div className="App">
+    <h1 className="Header">Characters</h1>
+    <CharacterDiv>
       {characterState.map((person) => {
         return <Character 
         id={Date.now()} 
@@ -48,7 +47,8 @@ const App = () => {
         location={person.location.name}
         />
       })}
-    </AppDiv>
+      </CharacterDiv>
+    </div>
   );
 }
 

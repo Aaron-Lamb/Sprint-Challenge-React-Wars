@@ -7,6 +7,8 @@ import styled from "styled-components";
 const CharacterDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 75%;
+  margin-left: 22.5%;
 `
 
 const App = () => {

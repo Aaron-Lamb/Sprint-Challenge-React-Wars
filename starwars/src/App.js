@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios";
 import Character from "./components/Character";
 import styled from "styled-components";
+import SearchForm from "./components/Search";
 
 const CharacterDiv = styled.div`
   display: flex;
@@ -37,6 +38,7 @@ const App = () => {
   return (
     <div className="App">
     <h1 className="Header">Characters</h1>
+    <SearchForm />
     <CharacterDiv>
       {characterState.map((person) => {
         return <Character 

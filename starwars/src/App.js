@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from "axios";
 import Character from "./components/Character";
+import styled from "styled-components";
+import image from "./images/rm-bg.jpg";
+
+const AppDiv = styled.div`
+  background: url(${image});
+  background-size: cover;
+  background-repeat: no-repeat;
+`
 
 const App = () => {
   // I will set my state here.
@@ -27,7 +35,7 @@ const App = () => {
 
   console.log(characterState);
   return (
-    <div className="App">
+    <AppDiv className="App">
       <h1 className="Header">Characters</h1>
       {characterState.map((person) => {
         return <Character 
@@ -40,7 +48,7 @@ const App = () => {
         location={person.location.name}
         />
       })}
-    </div>
+    </AppDiv>
   );
 }
 

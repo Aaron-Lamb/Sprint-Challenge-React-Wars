@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from "axios";
+import Character from "./components/Character";
 
 const App = () => {
   // I will set my state here.
@@ -24,10 +25,21 @@ const App = () => {
     })
   }, [])
 
-  
+  console.log(characterState);
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+      {characterState.map((person) => {
+        return <Character 
+        id={Date.now()} 
+        name={person.name} 
+        status={person.status}
+        species={person.species}
+        type={person.type}
+        gender={person.gender}
+        location={person.location.name}
+        />
+      })}
     </div>
   );
 }

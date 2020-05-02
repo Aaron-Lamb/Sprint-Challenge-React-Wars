@@ -23,7 +23,8 @@ const App = () => {
       console.log(error)
     })
   }, [])
-console.log(characterState);
+
+  
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>

@@ -45,6 +45,7 @@ const App = () => {
         type={person.type}
         gender={person.gender}
         location={person.location.name}
+        image={person.image}
         />
       })}
       </CharacterDiv>

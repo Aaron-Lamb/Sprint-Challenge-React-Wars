@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from "axios";
+import Character from "./components/Character";
+import styled from "styled-components";
+import SearchForm from "./components/Search";
+
+const CharacterDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin-left: 22.5%;
+`
 
 const App = () => {
+  // I will set my state here.
+  const [characterState, setCharacterState] = useState([]);
+
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -9,9 +23,36 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+  // Now setting my state to the r&m api
+  useEffect(() => {
+    axios.get("https://rickandmortyapi.com/api/character")
+    .then(response => {
+      setCharacterState(response.data.results)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }, [])
+
+  console.log(characterState);
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+    <h1 className="Header">Characters</h1>
+    <SearchForm />
+    <CharacterDiv>
+      {characterState.map((person) => {
+        return <Character 
+        id={Date.now()} 
+        name={person.name} 
+        status={person.status}
+        species={person.species}
+        type={person.type}
+        gender={person.gender}
+        location={person.location.name}
+        image={person.image}
+        />
+      })}
+      </CharacterDiv>
     </div>
   );
 }
